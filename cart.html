@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Printify Cart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#02030a;--panel:#06101c;--gold:#f8cf68;--blue:#5ab8ff;--white:#f7fbff;--muted:rgba(232,242,255,0.66);--border:rgba(255,255,255,0.13);--mint:#c7f36d}
+body{min-height:100vh;background:#02030a;color:var(--white);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(180deg,rgba(2,3,10,.36),rgba(2,5,12,.78) 58%,rgba(2,3,10,.92)),radial-gradient(ellipse at 50% 18%,rgba(90,184,255,.16),transparent 36rem),radial-gradient(ellipse at 82% 8%,rgba(199,243,109,.11),transparent 30rem),url("printify-filled-shapes-bg.png") center/cover no-repeat}
+.bg-shapes{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.shape{position:absolute;width:70px;height:70px;border:1.5px solid rgba(240,168,48,0.28);transform:rotate(20deg);animation:float 14s ease-in-out infinite}
+.shape:nth-child(2n){border-color:rgba(26,171,255,0.24);border-radius:50%}
+.shape:nth-child(3n){clip-path:polygon(50% 0,100% 86%,0 86%);background:rgba(240,168,48,0.035)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(20deg)}50%{transform:translateY(-38px) rotate(68deg)}}
+nav,.page{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;border-bottom:1px solid var(--border);background:rgba(3,7,16,0.88);backdrop-filter:blur(20px)}
+.brand{display:flex;align-items:center}
+.brand-logo{width:132px;height:52px;object-fit:contain;object-position:left center;filter:drop-shadow(0 0 14px rgba(90,184,255,.24))}
+.back{color:var(--muted);text-decoration:none;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em}
+.back:hover{color:var(--white)}
+.page{width:min(1180px,calc(100% - 3rem));margin:0 auto;padding:3rem 0 4rem}
+.head{display:flex;justify-content:space-between;gap:2rem;align-items:flex-end;margin-bottom:2rem}
+.eyebrow{font-size:0.72rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;color:#9fe2ff;margin-bottom:0.65rem}
+h1{font-size:clamp(3.2rem,8vw,6.6rem);font-weight:900;line-height:0.88;text-transform:uppercase;letter-spacing:-0.055em}
+h1 span{color:#06101c;background:linear-gradient(100deg,#f7fbff,#8dd8ff 58%,#c7f36d);border-radius:.1em;padding:0 .08em}
+.hint{max-width:430px;color:var(--muted);line-height:1.7}
+.cart{display:grid;grid-template-columns:1.15fr 0.85fr;gap:1.2rem;align-items:start}
+.panel{background:rgba(6,14,27,0.88);border:1px solid var(--border);border-radius:22px;padding:1.4rem;box-shadow:0 24px 80px rgba(0,0,0,0.38);backdrop-filter:blur(18px)}
+.panel-title{font-size:0.72rem;font-weight:900;letter-spacing:0.14em;text-transform:uppercase;color:rgba(159,226,255,.78);padding-bottom:0.9rem;border-bottom:1px solid var(--border);margin-bottom:1.2rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:0.38rem;margin-bottom:1rem}
+label{font-size:0.68rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,242,255,0.62)}
+input,select,textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:14px;color:#fff;font-family:inherit;font-size:0.95rem;padding:0.86rem 0.95rem;outline:none}
+option{color:#06101c;background:#fff}
+textarea{resize:vertical;min-height:82px}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,168,48,0.12)}
+.req{color:var(--gold)}
+.bad{border-color:#ff7070!important}
+.err{display:none;color:#ff8f8f;font-size:0.68rem;font-weight:800}
+.err.show{display:block}
+.summary{position:sticky;top:1rem}
+.line{display:flex;justify-content:space-between;gap:1rem;padding:0.72rem 0;border-bottom:1px solid rgba(255,255,255,0.07);color:var(--muted)}
+.line strong{color:var(--white);font-weight:600;text-align:right}
+.total{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1rem}
+.total span{font-size:0.68rem;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:var(--blue)}
+.total strong{font-size:3rem;line-height:1;color:var(--gold);letter-spacing:-0.06em}
+.btn{width:100%;border:none;border-radius:999px;background:#f7fbff;color:#06101c;font-size:1rem;font-weight:900;padding:1rem;margin-top:1.3rem;cursor:pointer;box-shadow:0 16px 40px rgba(90,184,255,0.12),0 14px 30px rgba(0,0,0,0.24)}
+.btn:hover{background:#dff3ff;transform:translateY(-1px)}
+.note{font-size:0.76rem;color:rgba(255,255,255,0.32);line-height:1.6;margin-top:0.85rem}
+@media(max-width:860px){nav{padding:1rem 1.5rem}.page{width:min(100% - 2rem,1180px);padding-top:2rem}.head{display:block}.hint{margin-top:1rem}.cart{grid-template-columns:1fr}.summary{position:static}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg-shapes">
+  <div class="shape" style="left:8%;top:18%;animation-delay:-2s"></div>
+  <div class="shape" style="left:78%;top:16%;animation-delay:-6s"></div>
+  <div class="shape" style="left:88%;top:62%;animation-delay:-9s"></div>
+  <div class="shape" style="left:12%;top:74%;animation-delay:-4s"></div>
+  <div class="shape" style="left:52%;top:8%;animation-delay:-11s"></div>
+  <div class="shape" style="left:42%;top:82%;animation-delay:-7s"></div>
+</div>
+
+<nav>
+  <a href="printify%20part%202.html" class="brand" aria-label="Printify home"><img class="brand-logo" src="printify-logo.png" alt="Printify"></a>
+  <a href="printify%20part%202.html#products" class="back">Back to products</a>
+</nav>
+
+<main class="page">
+  <div class="head">
+    <div>
+      <div class="eyebrow">Cart / Order Details</div>
+      <h1>Your <span>Order</span></h1>
+    </div>
+    <p class="hint">Fill in what you want, your contact details, and delivery address. When you confirm, WhatsApp opens with everything ready to send.</p>
+  </div>
+
+  <form class="cart" id="cartForm" novalidate>
+    <section class="panel">
+      <div class="panel-title">Product</div>
+      <div class="grid">
+        <div class="fg">
+          <label for="product">Product <span class="req">*</span></label>
+          <select id="product" required>
+            <option value="">Select a product...</option>
+          </select>
+          <span class="err" id="productErr">Please select a product.</span>
+        </div>
+        <div class="fg">
+          <label for="qty">Quantity <span class="req">*</span></label>
+          <select id="qty">
+            <option value="1">1 piece</option>
+            <option value="2">2 pieces</option>
+            <option value="3">3 pieces</option>
+            <option value="4">4 pieces</option>
+            <option value="5">5+ pieces</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="fg">
+          <label for="color">Colour / Finish <span class="req">*</span></label>
+          <input id="color" placeholder="Matte black, blue-purple, translucent..." autocomplete="off" required>
+          <span class="err" id="colorErr">Please enter a colour or finish.</span>
+        </div>
+        <div class="fg">
+          <label for="deadline">Needed By</label>
+          <input id="deadline" placeholder="No rush / specific date" autocomplete="off">
+        </div>
+      </div>
+      <div class="fg">
+        <label for="want">What do you want? <span class="req">*</span></label>
+        <textarea id="want" placeholder="Size, custom text, reference idea, changes, or anything special you want printed..." required></textarea>
+        <span class="err" id="wantErr">Please describe what you want.</span>
+      </div>
+
+      <div class="panel-title" style="margin-top:1.4rem">Your Info</div>
+      <div class="grid">
+        <div class="fg">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input id="name" placeholder="Your name" autocomplete="name" required>
+          <span class="err" id="nameErr">Please enter your name.</span>
+        </div>
+        <div class="fg">
+          <label for="phone">WhatsApp Number <span class="req">*</span></label>
+          <input id="phone" type="tel" inputmode="tel" placeholder="+91 98765 43210" autocomplete="tel" required>
+          <span class="err" id="phoneErr">Please enter a valid phone number.</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+
+      <div class="panel-title" style="margin-top:1.4rem">Delivery</div>
+      <div class="fg">
+        <label for="address">Address <span class="req">*</span></label>
+        <textarea id="address" placeholder="Flat/House no., building, street, area..." required></textarea>
+        <span class="err" id="addressErr">Please enter your address.</span>
+      </div>
+      <div class="grid">
+        <div class="fg">
+          <label for="city">City <span class="req">*</span></label>
+          <input id="city" placeholder="Ahmedabad" autocomplete="address-level2" required>
+          <span class="err" id="cityErr">Please enter your city.</span>
+        </div>
+        <div class="fg">
+          <label for="pin">PIN Code <span class="req">*</span></label>
+          <input id="pin" inputmode="numeric" pattern="[0-9]{6}" placeholder="380001" maxlength="6" autocomplete="postal-code" required>
+          <span class="err" id="pinErr">Enter a valid 6-digit PIN.</span>
+        </div>
+      </div>
+      <div class="panel-title" style="margin-top:1.4rem">Payment</div>
+      <div class="fg">
+        <label for="payment">Payment Method <span class="req">*</span></label>
+        <select id="payment" required>
+          <option value="">Select payment method...</option>
+          <option value="UPI">UPI</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="Pay after confirmation">Pay after confirmation</option>
+        </select>
+        <span class="err" id="paymentErr">Please select a payment method.</span>
+      </div>
+      <div class="fg">
+        <label for="notes">Extra Notes</label>
+        <textarea id="notes" placeholder="Gift packing, delivery note, payment question..."></textarea>
+      </div>
+    </section>
+
+    <aside class="panel summary">
+      <div class="panel-title">Cart Summary</div>
+      <div class="line"><span>Product</span><strong id="sumProduct">Select product</strong></div>
+      <div class="line"><span>Base Price</span><strong id="sumPrice">-</strong></div>
+      <div class="line"><span>Quantity</span><strong id="sumQty">1</strong></div>
+      <div class="line"><span>Colour</span><strong id="sumColor">-</strong></div>
+      <div class="line"><span>Payment</span><strong id="sumPayment">-</strong></div>
+      <div class="total"><span>Estimated Total</span><strong id="sumTotal">-</strong></div>
+      <button class="btn" type="submit">Send Order on WhatsApp</button>
+      <p class="note">Custom sizes and bulk orders may need final confirmation. This page prepares your order message; it does not take payment.</p>
+    </aside>
+  </form>
+</main>
+
+<script>
+var WHATSAPP_NUMBER='919824222280';
+var products=[
+  ['Spiral Cones',200],['Dual Karambit Display',400],['Bookmark Clip',150],['Twiste Fidget Toy',250],
+  ['Fidget Cube',350],['Magnetic Slider Fidget',200],['Bearbrick Duo',250],
+  ['Butterfly Knife Practice Model',300],['F1 Covered Car',550],
+  ['Custom Desktop Sign',250],['Custom Desktop Sign (1-13 chars)',450],
+  ['Custom 3D Relief Frame',600],['Custom Frame (Custom Size)',0],
+  ['Custom Character and Statue',500],['Custom Character (20 cm)',900]
+];
+function storageGet(key){try{return window.localStorage.getItem(key)}catch(e){return null}}
+function storageSet(key,value){try{window.localStorage.setItem(key,value)}catch(e){}}
+var product=document.getElementById('product'),qty=document.getElementById('qty'),color=document.getElementById('color'),payment=document.getElementById('payment');
+products.forEach(function(p){var o=document.createElement('option');o.value=p[0];o.dataset.price=p[1];o.textContent=p[0]+' - '+(p[1]?'Rs '+p[1]:'Ask price');product.appendChild(o);});
+var params=new URLSearchParams(window.location.search);
+var pre=params.get('product');
+if(pre){for(var i=0;i<product.options.length;i++){if(product.options[i].value.toLowerCase()===pre.toLowerCase()||product.options[i].value.toLowerCase().indexOf(pre.toLowerCase())===0){product.selectedIndex=i;break;}}}
+var preQty=params.get('qty');
+if(preQty&&qty.querySelector('option[value="'+preQty+'"]'))qty.value=preQty;
+var reward=params.get('reward')||storageGet('printifySpinReward')||'';
+if(reward)storageSet('printifySpinReward',reward);
+var preNotes=params.get('notes');
+if(preNotes)document.getElementById('notes').value=preNotes;
+var preWant=params.get('want');
+if(preWant)document.getElementById('want').value=preWant;
+function selectedPrice(){return Number(product.selectedOptions[0]&&product.selectedOptions[0].dataset.price||0)}
+function rewardDiscount(subtotal){
+  var amount=0,note='';
+  if(reward==='Rs 20 off')amount=20;
+  if(reward==='Rs 40 off')amount=40;
+  if(reward==='Rs 50 off')amount=50;
+  if(reward==='Rs 60 off on Rs 500+ order'){if(subtotal>=500)amount=60;else note='Rs 60 applies at Rs 500+'}
+  if(reward==='Rs 80 off on Rs 700+ order'){if(subtotal>=700)amount=80;else note='Rs 80 applies at Rs 700+'}
+  if(reward==='Rs 100 off on Rs 1000+ order'){if(subtotal>=1000)amount=100;else note='Rs 100 applies at Rs 1000+'}
+  return {amount:amount,note:note};
+}
+function totalText(){
+  var price=selectedPrice(),q=Number(qty.value);
+  if(!price)return 'Ask price';
+  var subtotal=price*q,discount=rewardDiscount(subtotal),total=Math.max(subtotal-discount.amount,0);
+  var text='Rs '+total.toLocaleString('en-IN');
+  if(discount.amount)text+=' after Rs '+discount.amount+' reward';
+  if(discount.note)text+=' ('+discount.note+')';
+  return text;
+}
+function updateSummary(){
+  var price=selectedPrice();
+  document.getElementById('sumProduct').textContent=product.value||'Select product';
+  document.getElementById('sumPrice').textContent=price?'Rs '+price:'Ask price';
+  document.getElementById('sumQty').textContent=qty.value+(qty.value==='5'?' or more':'');
+  document.getElementById('sumColor').textContent=color.value||'-';
+  document.getElementById('sumPayment').textContent=payment.value||'-';
+  document.getElementById('sumTotal').textContent=product.value?totalText():'-';
+}
+['change','input'].forEach(function(evt){product.addEventListener(evt,updateSummary);qty.addEventListener(evt,updateSummary);color.addEventListener(evt,updateSummary);payment.addEventListener(evt,updateSummary);});
+updateSummary();
+function mark(id,ok){document.getElementById(id).classList.toggle('bad',!ok);var e=document.getElementById(id+'Err');if(e)e.classList.toggle('show',!ok);return ok}
+['product','color','want','name','phone','address','city','pin','payment'].forEach(function(id){
+  var field=document.getElementById(id);
+  field.addEventListener('input',function(){field.classList.remove('bad');var e=document.getElementById(id+'Err');if(e)e.classList.remove('show')});
+  field.addEventListener('change',function(){field.classList.remove('bad');var e=document.getElementById(id+'Err');if(e)e.classList.remove('show')});
+});
+document.getElementById('cartForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  ok=mark('product',!!product.value)&&ok;
+  ok=mark('color',!!color.value.trim())&&ok;
+  ok=mark('want',!!document.getElementById('want').value.trim())&&ok;
+  ok=mark('name',!!document.getElementById('name').value.trim())&&ok;
+  ok=mark('phone',document.getElementById('phone').value.replace(/\D/g,'').length>=10)&&ok;
+  ok=mark('address',!!document.getElementById('address').value.trim())&&ok;
+  ok=mark('city',!!document.getElementById('city').value.trim())&&ok;
+  ok=mark('pin',/^\d{6}$/.test(document.getElementById('pin').value.trim()))&&ok;
+  ok=mark('payment',!!payment.value)&&ok;
+  if(!ok){var firstBad=document.querySelector('.bad');if(firstBad){firstBad.focus();firstBad.scrollIntoView({behavior:'smooth',block:'center'})}return;}
+  var msg='New Order - PRINTIFY\n\n'+
+    'Product: '+product.value+'\n'+
+    'Quantity: '+qty.value+(qty.value==='5'?' or more':'')+'\n'+
+    'Estimated Total: '+totalText()+'\n'+
+    (reward?'Reward: '+reward+'\n':'')+
+    'Colour/Finish: '+color.value.trim()+'\n'+
+    'Needed By: '+(document.getElementById('deadline').value.trim()||'Not specified')+'\n\n'+
+    'What they want:\n'+document.getElementById('want').value.trim()+'\n\n'+
+    'Customer Name: '+document.getElementById('name').value.trim()+'\n'+
+    'WhatsApp: '+document.getElementById('phone').value.trim()+'\n'+
+    'Email: '+(document.getElementById('email').value.trim()||'Not provided')+'\n\n'+
+    'Address:\n'+document.getElementById('address').value.trim()+'\n'+
+    'City: '+document.getElementById('city').value.trim()+'\n'+
+    'PIN: '+document.getElementById('pin').value.trim()+'\n\n'+
+    'Payment Method: '+payment.value+'\n\n'+
+    'Notes: '+(document.getElementById('notes').value.trim()||'None');
+  storageSet('printifyOrderPlaced','true');
+  storageSet('printifyLastOrderAt',new Date().toISOString());
+  window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(msg),'_blank');
+  window.setTimeout(function(){
+    window.location.href='printify%20part%202.html#spinner';
+  },700);
+});
+</script>
+</body>
+</html>
