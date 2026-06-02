@@ -43,7 +43,7 @@ body:before{
     linear-gradient(180deg,rgba(2,3,10,.36),rgba(2,5,12,.72) 58%,rgba(2,3,10,.88) 100%),
     radial-gradient(ellipse at 50% 18%,rgba(90,184,255,.16),transparent 36rem),
     radial-gradient(ellipse at 82% 8%,rgba(139,92,246,.18),transparent 30rem),
-    url("printify-filled-shapes-bg.png") center center/cover no-repeat;
+    url("images/ChatGPT Image May 22, 2026, 01_13_01 AM.png") center center/cover no-repeat;
 }
 body:after{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
@@ -481,6 +481,7 @@ h2{font-size:clamp(2.3rem,5vw,4.7rem);line-height:.92;letter-spacing:-.07em;font
 .info{padding:1rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
 .tag{color:#fff;font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
 .name{font-size:1.08rem;font-weight:900;letter-spacing:-.04em}
+.brief{color:#f8cf68;font-size:.78rem;font-weight:900;line-height:1.35;text-transform:uppercase;letter-spacing:.06em}
 .desc{color:rgba(232,242,255,.78);font-size:.88rem;line-height:1.55;flex:1}
 .details{display:flex;gap:.4rem;flex-wrap:wrap}
 .detail{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.07);border-radius:999px;padding:.34rem .52rem;color:rgba(232,242,255,.78);font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
@@ -574,9 +575,18 @@ input:focus,select:focus,textarea:focus{border-color:#111;box-shadow:0 0 0 4px r
 .quick-body{padding:1.3rem;display:flex;flex-direction:column;gap:1rem}
 .quick-body h3{font-size:2.3rem;line-height:.95;letter-spacing:-.07em}
 .quick-body p{color:var(--card-muted);line-height:1.7}
+.quick-details{display:flex;flex-wrap:wrap;gap:.45rem}
+.quick-details .detail{color:#243244;border-color:#d7dce5;background:#eef5fb}
 
 .toast{position:fixed;left:50%;bottom:22px;z-index:200;transform:translate(-50%,120%);background:#111;color:#fff;border-radius:999px;padding:.8rem 1rem;font-weight:900;box-shadow:0 18px 50px rgba(0,0,0,.25);transition:.28s}
 .toast.show{transform:translate(-50%,0)}
+.back-top{
+  position:fixed;right:18px;bottom:18px;z-index:190;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;background:#f7fbff;color:#07111f;font-size:1.25rem;font-weight:900;cursor:pointer;
+  box-shadow:0 18px 46px rgba(0,0,0,.28);opacity:0;pointer-events:none;transform:translateY(12px);transition:.18s;
+}
+.back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.mobile-order-bar{display:none}
 
 @media(max-width:980px){
   .hero-grid,.about-grid,.custom-grid,.quick-view,.spin-grid,.spin-stage{grid-template-columns:1fr}
@@ -918,6 +928,803 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
 @media(max-width:680px){
   .mesh-canvas{opacity:.62}
 }
+
+/* Professional polish pass */
+:root{
+  --surface:#08111f;
+  --surface-2:#101b2d;
+  --accent:#7dd3fc;
+  --accent-2:#c7f36d;
+  --warm:#f8cf68;
+}
+body{
+  background:#050914;
+}
+body:before{
+  background:
+    linear-gradient(180deg,rgba(2,3,10,.36),rgba(2,5,12,.72) 58%,rgba(2,3,10,.88) 100%),
+    radial-gradient(ellipse at 50% 18%,rgba(90,184,255,.16),transparent 36rem),
+    radial-gradient(ellipse at 82% 8%,rgba(139,92,246,.18),transparent 30rem);
+}
+body:after{
+  background:linear-gradient(90deg,rgba(2,3,10,.28),transparent 20% 80%,rgba(2,3,10,.28));
+}
+.mesh-canvas{
+  display:block!important;
+}
+.bg-products,.space-objects,.noise{
+  display:none!important;
+}
+.wrap{
+  width:min(100% - 48px,1180px);
+}
+header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(5,9,20,.82);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(18px);
+}
+.nav{
+  min-height:76px;
+}
+.brand-logo{
+  width:124px;
+  height:48px;
+  border-radius:12px;
+  object-fit:contain;
+}
+.nav-links a{
+  color:rgba(232,242,255,.76);
+  background:transparent;
+  border:1px solid transparent;
+}
+.nav-links a:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.12);
+}
+.nav-links a.active{
+  background:rgba(125,211,252,.14);
+  border-color:rgba(125,211,252,.28);
+  color:#fff;
+}
+.nav-cta{
+  background:linear-gradient(135deg,#f7fbff,#dff3ff)!important;
+  box-shadow:0 12px 28px rgba(90,184,255,.16);
+}
+.hero{
+  min-height:calc(100vh - 76px);
+  display:grid;
+  align-items:center;
+  padding:56px 0 42px;
+}
+.hero-grid{
+  grid-template-columns:1fr .86fr;
+  gap:clamp(2rem,5vw,4rem);
+}
+.eyebrow{
+  background:rgba(125,211,252,.1);
+  border-color:rgba(125,211,252,.26);
+  color:#dff3ff;
+  box-shadow:none;
+}
+.hero-copy{
+  position:relative;
+}
+h1{
+  max-width:760px;
+  font-size:clamp(4rem,8.6vw,8rem);
+  line-height:.78;
+  letter-spacing:.015em;
+  font-family:Impact,Haettenschweiler,"Arial Narrow",Inter,system-ui,sans-serif;
+  font-stretch:condensed;
+  text-transform:uppercase;
+  text-shadow:0 18px 42px rgba(0,0,0,.42),0 0 32px rgba(125,211,252,.14);
+  -webkit-text-stroke:0;
+}
+.title-line{
+  position:relative;
+  width:max-content;
+  max-width:100%;
+  color:transparent;
+  background:linear-gradient(180deg,#ffffff 0%,#dff3ff 48%,#7dd3fc 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  filter:drop-shadow(0 10px 0 rgba(7,17,31,.62));
+}
+.title-line:after{
+  content:"";
+  position:absolute;
+  left:.04em;
+  right:.04em;
+  bottom:-.08em;
+  height:.08em;
+  border-radius:999px;
+  background:linear-gradient(90deg,#f8cf68,#c7f36d,#7dd3fc);
+  box-shadow:0 0 26px rgba(125,211,252,.28);
+}
+.title-accent{
+  margin-top:.16em;
+  padding:.01em .16em .08em;
+  color:#07111f;
+  background:linear-gradient(100deg,#f8cf68 0%,#f7fbff 38%,#c7f36d 100%);
+  box-shadow:0 18px 42px rgba(125,211,252,.16),inset 0 -10px 0 rgba(7,17,31,.08);
+  transform:skewX(-8deg);
+  letter-spacing:.02em;
+}
+.title-accent::first-letter{
+  color:#12324a;
+}
+.lead{
+  max-width:610px;
+  font-size:1.06rem;
+  color:rgba(232,242,255,.82);
+}
+.btn,.mini,.filter,.heart,.close{
+  border-radius:10px;
+}
+.btn-dark{
+  background:#f7fbff;
+  color:#07111f;
+}
+.btn-light{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.18);
+}
+.btn-spark{
+  color:#07111f;
+  background:linear-gradient(135deg,#f8cf68,#c7f36d);
+  box-shadow:0 16px 34px rgba(199,243,109,.15);
+}
+.btn-spark:hover{
+  background:linear-gradient(135deg,#ffe08a,#d8ff82);
+}
+.hero-note{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:1rem;
+  color:rgba(232,242,255,.72);
+  font-size:.78rem;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.hero-note span{
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:10px;
+  background:rgba(255,255,255,.07);
+  padding:.48rem .62rem;
+}
+.hero-note span:first-child{
+  color:#ddffa2;
+  border-color:rgba(199,243,109,.26);
+  background:rgba(199,243,109,.1);
+}
+.hero-proof{
+  gap:.75rem;
+}
+.proof-pill,.hero-board,.spin-copy,.spin-stage,.about-card,.about-story,.lab-panel,.cta-card,.product,.starter-card,.step{
+  border-radius:16px;
+  background:rgba(8,17,31,.86);
+  border-color:rgba(255,255,255,.12);
+}
+.proof-pill{
+  box-shadow:none;
+}
+.hero-board{
+  min-height:auto;
+  padding:1rem;
+  box-shadow:0 28px 80px rgba(0,0,0,.34);
+}
+.hero-board:before{
+  opacity:.75;
+}
+.machine{
+  height:350px;
+  border-radius:14px;
+}
+.board-card,.color-panel,.print-status{
+  border-radius:12px;
+  background:rgba(255,255,255,.07);
+}
+.marquee{
+  background:rgba(5,9,20,.88);
+}
+section{
+  padding:72px 0;
+}
+.finder-section{
+  padding:76px 0;
+  background:linear-gradient(180deg,rgba(5,9,20,.2),rgba(8,17,31,.56));
+}
+.finder-grid{
+  display:grid;
+  grid-template-columns:.92fr 1.08fr;
+  gap:1.1rem;
+  align-items:stretch;
+}
+.finder-copy,.finder-result{
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:16px;
+  background:rgba(8,17,31,.88);
+  box-shadow:0 22px 62px rgba(0,0,0,.28);
+  padding:1.35rem;
+}
+.finder-copy p{
+  color:rgba(232,242,255,.74);
+  line-height:1.75;
+  margin-top:1rem;
+}
+.finder-options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.55rem;
+  margin-top:1.05rem;
+}
+.finder-chip{
+  min-height:40px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:10px;
+  background:rgba(255,255,255,.07);
+  color:rgba(232,242,255,.82);
+  padding:0 .78rem;
+  font-weight:900;
+  cursor:pointer;
+  transition:background .16s ease,color .16s ease,border-color .16s ease,transform .16s ease;
+}
+.finder-chip:hover,.finder-chip.on{
+  background:#f7fbff;
+  color:#07111f;
+  border-color:#f7fbff;
+  transform:translateY(-1px);
+}
+.finder-result{
+  display:grid;
+  grid-template-columns:minmax(180px,.72fr) 1fr;
+  gap:1rem;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+.finder-result:before{
+  content:"";
+  position:absolute;
+  inset:-30% -10% auto auto;
+  width:260px;
+  height:260px;
+  background:radial-gradient(circle,rgba(125,211,252,.18),transparent 68%);
+  pointer-events:none;
+}
+.finder-img{
+  position:relative;
+  border-radius:14px;
+  overflow:hidden;
+  background:#101827;
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
+}
+.finder-img img{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+}
+.finder-body{
+  position:relative;
+  display:grid;
+  gap:.8rem;
+}
+.finder-match{
+  width:max-content;
+  max-width:100%;
+  border:1px solid rgba(199,243,109,.34);
+  border-radius:10px;
+  background:rgba(199,243,109,.12);
+  color:#ddffa2;
+  padding:.45rem .6rem;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.finder-body h3{
+  font-size:clamp(1.8rem,3.2vw,3rem);
+  line-height:.92;
+  letter-spacing:-.055em;
+}
+.finder-body p{
+  color:rgba(232,242,255,.74);
+  line-height:1.65;
+}
+.finder-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.65rem;
+}
+.finder-details{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+}
+.section-head{
+  margin-bottom:1.8rem;
+}
+.kicker{
+  color:#7dd3fc;
+}
+h2{
+  letter-spacing:-.045em;
+}
+.starter-grid,.products{
+  gap:1.1rem;
+}
+.section-note{
+  max-width:430px;
+  color:rgba(232,242,255,.68);
+  line-height:1.65;
+}
+.premium-section{
+  padding-top:34px;
+  background:linear-gradient(180deg,rgba(8,17,31,.22),rgba(5,9,20,.5));
+}
+.premium-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  align-items:stretch;
+}
+.premium-card{
+  display:grid;
+  grid-template-rows:360px 1fr;
+  overflow:hidden;
+  border:1px solid rgba(248,207,104,.18);
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(13,25,43,.94),rgba(8,17,31,.9));
+  box-shadow:0 24px 64px rgba(0,0,0,.28),0 0 42px rgba(248,207,104,.05);
+}
+.premium-photo{
+  position:relative;
+  overflow:hidden;
+  background:#101827;
+  height:360px;
+  display:grid;
+  place-items:center;
+}
+.premium-photo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:transform .25s ease;
+}
+.premium-card:hover .premium-photo img{
+  transform:scale(1.02);
+}
+.premium-info{
+  display:grid;
+  grid-template-rows:auto auto 1fr auto;
+  gap:.75rem;
+  padding:1rem;
+}
+.premium-rank{
+  width:max-content;
+  max-width:100%;
+  border:1px solid rgba(248,207,104,.34);
+  border-radius:10px;
+  background:rgba(248,207,104,.13);
+  color:#ffe7a3;
+  padding:.42rem .6rem;
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.premium-info h3{
+  font-size:clamp(1.25rem,2.4vw,2rem);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.premium-info p{
+  color:rgba(232,242,255,.72);
+  line-height:1.58;
+  font-size:.92rem;
+}
+.premium-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.75rem;
+  margin-top:auto;
+}
+.premium-foot b{
+  color:#f8cf68;
+  font-size:1.35rem;
+  letter-spacing:-.05em;
+}
+.photo-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.gallery-photo{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(8,17,31,.86);box-shadow:0 18px 44px rgba(0,0,0,.22)}
+.gallery-photo img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .25s ease}
+.gallery-photo:hover img{transform:scale(1.04)}
+.gallery-photo figcaption{position:absolute;left:.75rem;right:.75rem;bottom:.75rem;border-radius:10px;background:rgba(5,9,20,.78);border:1px solid rgba(255,255,255,.12);padding:.55rem .65rem;color:#fff;font-size:.76rem;font-weight:900;backdrop-filter:blur(10px)}
+.photo{
+  background:#101827;
+}
+.product{
+  box-shadow:0 18px 44px rgba(0,0,0,.22);
+  cursor:pointer;
+}
+.product:hover{
+  transform:translateY(-4px);
+  border-color:rgba(125,211,252,.32);
+  box-shadow:0 26px 60px rgba(0,0,0,.3);
+}
+.badge,.quick,.detail{
+  border-radius:8px;
+}
+.info{
+  gap:.65rem;
+}
+.name{
+  font-size:1.12rem;
+}
+.brief{
+  color:#f8cf68;
+}
+.desc{
+  color:rgba(232,242,255,.72);
+}
+.price{
+  color:#f8cf68;
+}
+.filters{
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.12);
+}
+.filter{
+  color:rgba(232,242,255,.78);
+}
+.filter.on,.filter:hover{
+  background:#f7fbff;
+  color:#07111f;
+}
+.catalogue-tools{
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) auto;
+  gap:.75rem;
+  align-items:center;
+  margin:-.5rem 0 1.25rem;
+}
+.catalogue-search{
+  position:relative;
+  display:block;
+  gap:0;
+  letter-spacing:0;
+  text-transform:none;
+  color:inherit;
+}
+.catalogue-search input{
+  width:100%;
+  min-height:46px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;
+  background:rgba(8,17,31,.86);
+  color:#fff;
+  padding:.85rem 1rem .85rem 2.55rem;
+  outline:none;
+  box-shadow:0 14px 34px rgba(0,0,0,.18);
+}
+.catalogue-search:before{
+  content:"";
+  position:absolute;
+  left:1rem;
+  top:50%;
+  width:14px;
+  height:14px;
+  border:2px solid rgba(232,242,255,.62);
+  border-radius:50%;
+  transform:translateY(-50%);
+}
+.catalogue-search:after{
+  content:"";
+  position:absolute;
+  left:1.9rem;
+  top:calc(50% + 8px);
+  width:8px;
+  height:2px;
+  background:rgba(232,242,255,.62);
+  transform:rotate(45deg);
+  transform-origin:left center;
+}
+.catalogue-search input:focus{
+  border-color:rgba(125,211,252,.7);
+  box-shadow:0 0 0 3px rgba(125,211,252,.12),0 14px 34px rgba(0,0,0,.18);
+}
+.catalogue-meta{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+.product-count{
+  color:rgba(232,242,255,.72);
+  font-size:.82rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+.tool-btn{
+  min-height:46px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;
+  background:rgba(8,17,31,.86);
+  color:rgba(232,242,255,.82);
+  padding:0 .85rem;
+  font-weight:900;
+  cursor:pointer;
+}
+.tool-btn:hover,.tool-btn.on{
+  background:#f7fbff;
+  color:#07111f;
+  border-color:#f7fbff;
+}
+.sort-select{
+  min-height:46px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:12px;
+  background:rgba(8,17,31,.86);
+  color:#fff;
+  padding:0 2.1rem 0 .85rem;
+  outline:none;
+  font-weight:800;
+}
+.sort-select option{
+  color:#07111f;
+}
+.empty-state{
+  grid-column:1/-1;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  background:rgba(8,17,31,.78);
+  padding:1.2rem;
+  color:rgba(232,242,255,.76);
+  font-weight:800;
+}
+.product:focus-visible,.mini:focus-visible,.btn:focus-visible,.filter:focus-visible,.heart:focus-visible,.swatch:focus-visible,.sort-select:focus-visible,.tool-btn:focus-visible,.catalogue-search input:focus-visible{
+  outline:3px solid rgba(125,211,252,.8);
+  outline-offset:3px;
+}
+.process{
+  background:rgba(8,17,31,.55);
+}
+.custom-copy,.quote-box{
+  border-radius:16px;
+  background:#f8fbff;
+  box-shadow:0 18px 44px rgba(0,0,0,.18);
+}
+.quote-box img{
+  border-radius:12px;
+}
+.quote-box .wide,.lab-preview,.lab-total{
+  border-radius:12px;
+}
+.cta-card{
+  text-align:left;
+}
+.cta-card h2,.cta-card p{
+  margin-left:0;
+}
+footer{
+  background:#050914;
+}
+@media(max-width:980px){
+  .hero{
+    min-height:auto;
+  }
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+}
+@media(max-width:680px){
+  .wrap{
+    width:min(100% - 24px,1180px);
+  }
+  header{
+    position:relative;
+  }
+  .nav{
+    min-height:0;
+  }
+  h1{
+    font-size:clamp(3rem,15vw,4.5rem);
+  }
+  .hero-proof{
+    grid-template-columns:1fr;
+  }
+  .machine{
+    height:280px;
+  }
+  .starter-grid,.products,.steps{
+    grid-template-columns:1fr;
+  }
+  .premium-grid{
+    grid-template-columns:1fr;
+  }
+  .premium-card{
+    grid-template-rows:300px 1fr;
+  }
+  .premium-photo{
+    height:300px;
+  }
+  .finder-grid,.finder-result{
+    grid-template-columns:1fr;
+  }
+  .photo-gallery{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+.order-section{padding:76px 0;background:rgba(8,17,31,.44)}
+.order-head{display:flex;justify-content:space-between;gap:2rem;align-items:flex-end;margin-bottom:1.6rem}
+.order-hint{max-width:450px;color:rgba(232,242,255,.68);line-height:1.7}
+.order-cart{display:grid;grid-template-columns:1.15fr .85fr;gap:1.1rem;align-items:start}
+.order-panel{background:rgba(8,17,31,.9);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:1.4rem;box-shadow:0 22px 62px rgba(0,0,0,.34)}
+.order-title{font-size:.72rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:rgba(159,226,255,.78);padding-bottom:.9rem;border-bottom:1px solid rgba(255,255,255,.13);margin-bottom:1.2rem}
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.order-field{display:flex;flex-direction:column;gap:.38rem;margin-bottom:1rem}
+.order-field label{font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(232,242,255,.62)}
+.order-field input,.order-field select,.order-field textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;color:#fff;font-family:inherit;font-size:.95rem;padding:.86rem .95rem;outline:none}
+.order-field option{color:#06101c;background:#fff}
+.order-field textarea{resize:vertical;min-height:82px}
+.order-field input:focus,.order-field select:focus,.order-field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(248,207,104,.12)}
+.order-req{color:var(--gold)}
+.order-bad{border-color:#ff7070!important}
+.order-error{display:none;color:#ff8f8f;font-size:.68rem;font-weight:800}
+.order-error.show{display:block}
+.order-summary{position:sticky;top:92px}
+.order-line{display:flex;justify-content:space-between;gap:1rem;padding:.72rem 0;border-bottom:1px solid rgba(255,255,255,.07);color:rgba(232,242,255,.66)}
+.order-line strong{color:#fff;font-weight:700;text-align:right}
+.order-total{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1rem}
+.order-total span{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#7dd3fc}
+.order-total strong{font-size:2.6rem;line-height:1;color:var(--gold);letter-spacing:-.06em;text-align:right}
+.order-note{font-size:.76rem;color:rgba(255,255,255,.42);line-height:1.6;margin-top:.85rem}
+.last-order-section{background:rgba(8,17,31,.42)}
+.last-order-hint{max-width:430px;color:rgba(232,242,255,.68);line-height:1.7}
+.last-order-card{
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:16px;
+  background:rgba(8,17,31,.88);
+  box-shadow:0 22px 62px rgba(0,0,0,.3);
+  padding:1.2rem;
+}
+.last-order-empty,.last-order-content{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:1rem;
+  align-items:center;
+}
+.last-order-icon{
+  width:70px;
+  height:70px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#f7fbff,#8dd8ff 60%,#c7f36d);
+  color:#07111f;
+  font-weight:900;
+  letter-spacing:-.04em;
+  box-shadow:0 18px 42px rgba(125,211,252,.16);
+}
+.last-order-empty h3,.last-order-main h3{
+  font-size:1.45rem;
+  letter-spacing:-.04em;
+}
+.last-order-empty p,.last-order-main p{
+  margin-top:.35rem;
+  color:rgba(232,242,255,.68);
+  line-height:1.6;
+}
+.last-order-status{
+  display:inline-flex;
+  align-items:center;
+  min-height:32px;
+  border:1px solid rgba(199,243,109,.34);
+  border-radius:10px;
+  padding:0 .7rem;
+  background:rgba(199,243,109,.12);
+  color:#e7ffc2;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.last-order-meta{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:.65rem;
+  margin-top:1rem;
+}
+.last-order-meta div{
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;
+  background:rgba(255,255,255,.06);
+  padding:.8rem;
+}
+.last-order-meta span{
+  display:block;
+  color:rgba(232,242,255,.58);
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.last-order-meta b{
+  display:block;
+  margin-top:.28rem;
+  color:#fff;
+  font-size:.95rem;
+  line-height:1.35;
+}
+.last-order-actions{
+  display:grid;
+  gap:.55rem;
+  min-width:170px;
+}
+@media(max-width:860px){
+  .order-head{display:block}
+  .order-hint{margin-top:1rem}
+  .order-cart{grid-template-columns:1fr}
+  .order-summary{position:static}
+  .order-grid{grid-template-columns:1fr}
+  .last-order-empty,.last-order-content{grid-template-columns:1fr}
+  .last-order-actions{min-width:0}
+  .last-order-meta{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:680px){
+  .catalogue-tools{
+    grid-template-columns:1fr;
+  }
+  .catalogue-meta{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .sort-select{
+    width:100%;
+  }
+  .last-order-meta{
+    grid-template-columns:1fr;
+  }
+  .mobile-order-bar{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:12px;
+    z-index:70;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:.75rem;
+    align-items:center;
+    padding:.75rem;
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:16px;
+    background:rgba(5,9,20,.92);
+    color:#fff;
+    box-shadow:0 18px 54px rgba(0,0,0,.38);
+  }
+  .mobile-order-bar span{
+    display:block;
+    color:rgba(232,242,255,.68);
+    font-size:.72rem;
+    font-weight:800;
+  }
+  .mobile-order-bar b{
+    display:block;
+    font-size:.95rem;
+  }
+  .mobile-order-bar .btn{
+    min-height:42px;
+    padding:0 .85rem;
+  }
+  body{
+    padding-bottom:76px;
+  }
+}
 </style>
 </head>
 <body id="top">
@@ -1129,13 +1936,15 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
 <div class="shell">
   <header>
     <nav class="wrap nav">
-      <a href="#top" class="brand" aria-label="Printify home"><img class="brand-logo" src="printify-logo.png" alt="Printify"></a>
+      <a href="#top" class="brand" aria-label="Printify home"><img class="brand-logo" src="images/printify-logo.png" alt="Printify"></a>
       <ul class="nav-links">
         <li><a href="#products">Products</a></li>
+        <li><a href="#finder">Finder</a></li>
+        <li><a href="#last-order">Last Order</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#custom">Custom</a></li>
-        <li><a href="cart.html" class="nav-cta">Order Now</a></li>
+        <li><a href="cart.html" class="nav-cta" aria-label="Open cart page">Cart</a></li>
       </ul>
     </nav>
   </header>
@@ -1143,14 +1952,16 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
   <main>
     <section class="hero">
       <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> Custom 3D printed products</div>
-          <h1><span class="title-line">Custom 3D Prints</span><span class="title-accent">Made To Order</span></h1>
-          <p class="lead">High-quality fidgets, collectibles, desk accessories, custom signs, photo frames, and display pieces made with clean finishing and careful packing.</p>
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> Custom 3D prints, made fresh</div>
+          <h1><span class="title-line">Dreams Made</span><span class="title-accent">Real</span></h1>
+          <p class="lead">From fidgets and desk pieces to signs, frames, collectibles, and custom gifts, Printify turns your idea into a clean finished print.</p>
           <div class="hero-actions">
             <a class="btn btn-dark" href="#products">Shop Products</a>
             <button class="btn btn-light" onclick="openOrder('Custom Desktop Sign')" type="button">Start Custom Order</button>
+            <button class="btn btn-spark" id="surpriseBtn" type="button">Surprise Me</button>
           </div>
+          <div class="hero-note"><span>Designed from your idea</span><span>Printed, finished, packed</span></div>
           <div class="hero-proof">
             <div class="proof-pill"><b>Clean finish</b><span>Smooth layers and sharp detail</span></div>
             <div class="proof-pill"><b>Clear approval</b><span>Confirm details on WhatsApp</span></div>
@@ -1203,6 +2014,28 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
       <span>Spiral Cones</span><span>Display Models</span><span>Fidget Cube</span><span>Bearbrick Duo</span><span>Custom Sign</span><span>3D Relief Frame</span><span>Magnetic Slider</span><span>F1 Covered Car</span>
     </div></div>
 
+    <section class="finder-section" id="finder">
+      <div class="wrap finder-grid">
+        <div class="finder-copy">
+          <div class="kicker">Gift finder</div>
+          <h2>Pick a vibe. Get a print.</h2>
+          <p>Choose what the order is for and a rough budget. The shop will suggest a product that fits without making you scroll the whole catalogue.</p>
+          <div class="finder-options" data-finder-group="mood">
+            <button class="finder-chip on" data-value="focus" type="button">Focus toy</button>
+            <button class="finder-chip" data-value="gift" type="button">Gift</button>
+            <button class="finder-chip" data-value="desk" type="button">Desk setup</button>
+            <button class="finder-chip" data-value="custom" type="button">Custom idea</button>
+          </div>
+          <div class="finder-options" data-finder-group="budget">
+            <button class="finder-chip on" data-value="starter" type="button">Under Rs 250</button>
+            <button class="finder-chip" data-value="mid" type="button">Rs 250-500</button>
+            <button class="finder-chip" data-value="premium" type="button">Premium</button>
+          </div>
+        </div>
+        <div class="finder-result" id="finderResult" aria-live="polite"></div>
+      </div>
+    </section>
+
     <section id="starter">
       <div class="wrap">
         <div class="section-head">
@@ -1210,20 +2043,58 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
         </div>
         <div class="starter-grid">
           <article class="starter-card">
-            <img src="bookmark-clip-square.png" alt="Bookmark clip">
+            <img src="images/bookmark-clip-square.png" alt="Bookmark clip">
             <div class="starter-info"><b>Bookmark Clip</b><span>Useful, affordable, and easy to gift.</span><button class="mini" onclick="openOrder('Bookmark Clip')" type="button">Order</button></div>
           </article>
           <article class="starter-card">
-            <img src="spiral-cones-square.png" alt="Spiral cones">
+            <img src="images/ChatGPT Image May 22, 2026, 12_56_49 AM.png" alt="Spiral cones">
             <div class="starter-info"><b>Spiral Cones</b><span>A fun desk fidget with a clean finish.</span><button class="mini" onclick="openOrder('Spiral Cones')" type="button">Order</button></div>
           </article>
           <article class="starter-card">
-            <img src="magnetic-slider-fidget-square.png" alt="Magnetic slider fidget">
+            <img src="images/ChatGPT Image May 21, 2026, 02_40_09 PM.png" alt="Magnetic slider fidget">
             <div class="starter-info"><b>Magnetic Slider</b><span>Satisfying click feel for focus breaks.</span><button class="mini" onclick="openOrder('Magnetic Slider Fidget')" type="button">Order</button></div>
           </article>
           <article class="starter-card">
-            <img src="custom-desktop-sign-square.png" alt="Custom desktop sign">
+            <img src="images/ChatGPT Image May 22, 2026, 01_13_01 AM.png" alt="Custom desktop sign">
             <div class="starter-info"><b>Custom Sign</b><span>Personal names, handles, or desk labels.</span><button class="mini" onclick="openOrder('Custom Desktop Sign')" type="button">Order</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="premium-section" id="premium">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Premium best sellers</div><h2>Most wanted prints</h2></div>
+          <p class="section-note">Higher-detail products that customers usually choose when they want a bigger gift, display piece, or custom order.</p>
+        </div>
+        <div class="premium-grid">
+          <article class="premium-card">
+            <div class="premium-photo"><img src="images/ChatGPT Image May 21, 2026, 02_53_00 PM.png" alt="Custom 3D relief frame"></div>
+            <div class="premium-info">
+              <span class="premium-rank">Best seller</span>
+              <h3>Custom 3D Relief Frame</h3>
+              <p>Turn a photo or memory into a premium 3D printed frame for gifting or display.</p>
+              <div class="premium-foot"><b>Rs 600+</b><button class="mini" onclick="openOrder('Custom 3D Relief Frame')" type="button">Order</button></div>
+            </div>
+          </article>
+          <article class="premium-card">
+            <div class="premium-photo"><img src="images/ChatGPT Image May 18, 2026, 04_07_27 PM.png" alt="F1 covered car"></div>
+            <div class="premium-info">
+              <span class="premium-rank">Collector pick</span>
+              <h3>F1 Covered Car</h3>
+              <p>A sharp display model for car fans, room shelves, and premium desk setups.</p>
+              <div class="premium-foot"><b>Rs 550</b><button class="mini" onclick="openOrder('F1 Covered Car')" type="button">Order</button></div>
+            </div>
+          </article>
+          <article class="premium-card">
+            <div class="premium-photo"><img src="images/custom-character-square.png" alt="Custom character statue"></div>
+            <div class="premium-info">
+              <span class="premium-rank">Custom favorite</span>
+              <h3>Custom Character Statue</h3>
+              <p>Made from your reference idea, character, or person with custom size options.</p>
+              <div class="premium-foot"><b>Rs 500+</b><button class="mini" onclick="openOrder('Custom Character and Statue')" type="button">Order</button></div>
+            </div>
           </article>
         </div>
       </div>
@@ -1241,7 +2112,65 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
             <button class="filter" data-filter="custom" type="button">Custom</button>
           </div>
         </div>
+        <div class="catalogue-tools" aria-label="Catalogue controls">
+          <label class="catalogue-search" for="productSearch">
+            <input id="productSearch" type="search" placeholder="Search fidgets, gifts, custom signs..." autocomplete="off" aria-label="Search products">
+          </label>
+          <div class="catalogue-meta">
+            <span class="product-count" id="productCount">12 products</span>
+            <button class="tool-btn" id="favoritesOnly" type="button" aria-pressed="false">Saved</button>
+            <button class="tool-btn" id="clearCatalogue" type="button">Reset</button>
+            <select class="sort-select" id="productSort" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+              <option value="name">Name A-Z</option>
+            </select>
+          </div>
+        </div>
         <div class="products" id="productGrid"></div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Photo gallery</div><h2>All product photos</h2></div>
+        </div>
+        <div class="photo-gallery">
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 22, 2026, 12_56_49 AM.png" alt="Spiral cones" loading="lazy"><figcaption>Spiral Cones</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 22, 2026, 12_44_45 AM.png" alt="Dual karambit display" loading="lazy"><figcaption>Dual Karambit Display</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/bookmark-clip-square.png" alt="Bookmark clip" loading="lazy"><figcaption>Bookmark Clip</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/twiste-fidget-toy-square.png" alt="Twist fidget toy" loading="lazy"><figcaption>Twist Fidget Toy</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 21, 2026, 02_24_16 PM.png" alt="Twist fidget toy poster" loading="lazy"><figcaption>Twist Fidget Poster</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 21, 2026, 02_56_14 PM.png" alt="Fidget cube" loading="lazy"><figcaption>Fidget Cube</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 21, 2026, 02_40_09 PM.png" alt="Magnetic slider fidget" loading="lazy"><figcaption>Magnetic Slider</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/bearbrick-duo-square.png" alt="Bearbrick duo" loading="lazy"><figcaption>Bearbrick Duo</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/butterfly-knife-square.png" alt="Butterfly knife practice model" loading="lazy"><figcaption>Butterfly Practice Model</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 18, 2026, 04_07_27 PM.png" alt="F1 covered car" loading="lazy"><figcaption>F1 Covered Car</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 22, 2026, 01_13_01 AM.png" alt="Custom desktop sign" loading="lazy"><figcaption>Custom Desktop Sign</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/ChatGPT Image May 21, 2026, 02_53_00 PM.png" alt="Custom 3D relief frame" loading="lazy"><figcaption>Custom Relief Frame</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/custom-character-square.png" alt="Custom character and statue" loading="lazy"><figcaption>Custom Character</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="last-order-section" id="last-order">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">Order history</div><h2>Your last order</h2></div>
+          <p class="last-order-hint">After you send an order from the cart page, the latest order details will appear here on this device.</p>
+        </div>
+        <div class="last-order-card" id="lastOrderCard">
+          <div class="last-order-empty">
+            <div class="last-order-icon">3D</div>
+            <div>
+              <h3>No order saved yet</h3>
+              <p>Place an order from the cart page and this section will show the product, quantity, total, color, and status.</p>
+            </div>
+            <a class="btn btn-dark" href="cart.html">Start an Order</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1250,7 +2179,7 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
         <div class="spin-copy">
           <div class="kicker">Post-order reward</div>
           <h2>Spin after you order</h2>
-          <p>After placing an order, you can spin once to unlock a discount for your next Printify order. Your reward is saved automatically.</p>
+          <p>After placing an order, you can spin once to unlock a discount for your next Printify order. The spinner resets every 30 days on this device.</p>
           <div class="spin-prizes">
             <div class="spin-prize">Rs 20 off</div>
             <div class="spin-prize">Rs 40 off</div>
@@ -1276,7 +2205,7 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
             <div class="spin-result"><span>Your reward</span><b id="spinResult">Order first to unlock</b></div>
             <button class="btn btn-dark" id="spinBtn" type="button">Spin the wheel</button>
             <button class="btn btn-light" id="useRewardBtn" type="button">Use reward in next order</button>
-            <p class="spin-note">The spinner unlocks after the WhatsApp order form is submitted. Each customer can spin once on this device.</p>
+            <p class="spin-note">The spinner unlocks after the WhatsApp order form is submitted. You can spin once per month on this device, and your reward is saved automatically.</p>
           </div>
         </div>
       </div>
@@ -1338,9 +2267,9 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
           <div style="margin-top:1.3rem"><button class="btn btn-dark" onclick="openOrder('Custom Character and Statue')" type="button">Get Custom Quote</button></div>
         </div>
         <div class="quote-box">
-          <img src="custom-desktop-sign-square.png" alt="Custom desktop sign">
-          <img src="custom-frame-square.png" alt="Custom relief frame">
-          <img src="custom-character-square.png" alt="Custom character">
+          <img src="images/ChatGPT Image May 22, 2026, 01_13_01 AM.png" alt="Custom desktop sign">
+          <img src="images/ChatGPT Image May 21, 2026, 02_53_00 PM.png" alt="Custom relief frame">
+          <img src="images/custom-character-square.png" alt="Custom character">
           <div class="wide"><div><b>Custom starts at Rs 250</b><br><span>Final price depends on size, detail, and material.</span></div><button class="btn" onclick="openOrder('Custom Desktop Sign')" type="button">Order</button></div>
         </div>
         <div class="lab-panel">
@@ -1387,7 +2316,7 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
 
   <footer>
     <div class="wrap footer-row">
-      <img class="brand-logo" src="printify-logo.png" alt="Printify">
+      <img class="brand-logo" src="images/printify-logo.png" alt="Printify">
       <span>3D printed products, fidgets, collectibles, and custom gifts.</span>
       <div class="footer-contact">
         <a href="https://wa.me/919824222280">WhatsApp: +91 98242 22280</a>
@@ -1400,13 +2329,15 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
 
 <div class="quick-bg" id="quickBg" onclick="closeQuick(event)">
   <div class="quick-view">
-    <div class="quick-img"><img id="quickImg" src="" alt=""></div>
+    <div class="quick-img"><img id="quickImg" src="images/ChatGPT Image May 22, 2026, 12_56_49 AM.png" alt="Product preview"></div>
     <div class="quick-body">
       <div class="modal-head" style="padding:0;border:0">
         <div><div class="kicker" id="quickTag">Product</div><h3 id="quickName">Product</h3></div>
         <button class="close" onclick="closeQuick()" type="button" aria-label="Close quick view">&times;</button>
       </div>
+      <p class="brief" id="quickBrief"></p>
       <p id="quickDesc"></p>
+      <div class="quick-details" id="quickDetails"></div>
       <div class="summary"><span>Price</span><b id="quickPrice">Rs 0</b></div>
       <button class="btn btn-dark" id="quickOrder" type="button">Order this product</button>
       <button class="btn btn-light" onclick="closeQuick()" type="button">Back to products</button>
@@ -1415,37 +2346,67 @@ header,.proof-pill,.board-card,.color-panel,.print-status,.marquee,.spin-copy,.s
 </div>
 
 <div class="toast" id="toast">Product selected</div>
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+<div class="mobile-order-bar" aria-label="Quick order bar">
+  <div><span>Ready to print?</span><b>Review your cart page</b></div>
+  <a class="btn btn-dark" href="cart.html">Cart</a>
+</div>
 
 <script>
 var products=[
-  {name:"Spiral Cones",cat:"fidget",tag:"Fidget",price:200,img:"spiral-cones-square.png",desc:"A cool spiral fidget for your desk, shelf, or gift box. It is light, fun to hold, and looks great.",details:["Desk fidget","Gift ready","Many colors"]},
-  {name:"Dual Karambit Display",cat:"collectible",tag:"Display",price:400,img:"dual-karambit-square.png",desc:"A stylish 3D printed display model for collections, cosplay shelves, and room decor. Not made for use as a real tool.",details:["Display only","Lightweight","Made to order"]},
-  {name:"Bookmark Clip",cat:"accessory",tag:"Accessory",price:150,img:"bookmark-clip-square.png",desc:"A simple clip for books and notebooks. Useful, lightweight, and easy to carry.",details:["Starter pick","School friendly","Quick print"]},
-  {name:"Twiste Fidget Toy",cat:"fidget",tag:"Fidget",price:250,img:"twiste-fidget-toy-square.png",desc:"A small fidget toy you can spin and play with anytime. Great for focus, fun, and stress relief.",details:["Pocket size","Smooth motion","Many colors"]},
-  {name:"Fidget Cube",cat:"fidget",tag:"Fidget",price:350,img:"fidget-cube-square.png",desc:"A fun cube-shaped fidget for your hand. Good for relaxing, focusing, and passing time.",details:["Handheld","Durable print","Gift ready"]},
-  {name:"Magnetic Slider Fidget",cat:"fidget",tag:"Fidget",price:200,img:"magnetic-slider-fidget-square.png",desc:"A smooth magnetic slider with a nice click feel. Slide it, click it, and enjoy the action.",details:["Magnetic feel","Focus toy","Starter pick"]},
-  {name:"Bearbrick Duo",cat:"collectible",tag:"Collectible",price:250,img:"bearbrick-duo-square.png",desc:"Two cute mini figures for your desk or shelf. A nice gift and a fun collectible.",details:["Set of 2","Desk decor","Gift ready"]},
-  {name:"Butterfly Knife Practice Model",cat:"collectible",tag:"Practice",price:300,img:"butterfly-knife-square.png",desc:"A blunt 3D printed practice and display model for learning hand movement safely. Not a real blade.",details:["Blunt model","Practice only","Display piece"]},
-  {name:"F1 Covered Car",cat:"collectible",tag:"Collector",price:550,img:"f1-covered-car-square.png",desc:"A cool F1-style display car with a premium look. Perfect for car fans and collectors.",details:["Display car","Premium finish","Car fan gift"]},
-  {name:"Custom Desktop Sign",cat:"custom",tag:"Custom",price:250,img:"custom-desktop-sign-square.png",desc:"Get your name, username, brand name, or short text made into a 3D printed desk sign.",details:["Names/logos","Starts Rs 250","Quote first"]},
-  {name:"Custom 3D Relief Frame",cat:"custom",tag:"Custom",price:600,img:"custom-frame-square.png",desc:"Turn your photo into a 3D frame that you can keep on a desk, shelf, or gift to someone.",details:["Photo based","Gift piece","Quote first"]},
-  {name:"Custom Character and Statue",cat:"custom",tag:"Custom",price:500,img:"custom-character-square.png",desc:"Make a custom character or a small statue of you, your family, or any idea you have.",details:["Reference needed","Custom size","Quote first"]}
+  {name:"Spiral Cones",cat:"fidget",tag:"Fidget",price:200,img:"images/ChatGPT Image May 22, 2026, 12_56_49 AM.png",brief:"Twisty desk fidget with a clean spiral look.",desc:"A cool spiral fidget for your desk, shelf, or gift box. It is light, fun to hold, and looks great.",details:["Desk fidget","Gift ready","Many colors"]},
+  {name:"Dual Karambit Display",cat:"collectible",tag:"Display",price:400,img:"images/ChatGPT Image May 22, 2026, 12_44_45 AM.png",brief:"Bold shelf display for cosplay-style collections.",desc:"A stylish 3D printed display model for collections, cosplay shelves, and room decor. Not made for use as a real tool.",details:["Display only","Lightweight","Made to order"]},
+  {name:"Bookmark Clip",cat:"accessory",tag:"Accessory",price:150,img:"images/bookmark-clip-square.png",brief:"Small everyday clip for books and notebooks.",desc:"A simple clip for books and notebooks. Useful, lightweight, and easy to carry.",details:["Starter pick","School friendly","Quick print"]},
+  {name:"Twist Fidget Toy",cat:"fidget",tag:"Fidget",price:250,img:"images/twiste-fidget-toy-square.png",brief:"Pocket fidget made for smooth twisting motion.",desc:"A small fidget toy you can spin and play with anytime. Great for focus, fun, and stress relief.",details:["Pocket size","Smooth motion","Many colors"]},
+  {name:"Fidget Cube",cat:"fidget",tag:"Fidget",price:350,img:"images/ChatGPT Image May 21, 2026, 02_56_14 PM.png",brief:"Chunky hand fidget for focus and idle play.",desc:"A fun cube-shaped fidget for your hand. Good for relaxing, focusing, and passing time.",details:["Handheld","Durable print","Gift ready"]},
+  {name:"Magnetic Slider Fidget",cat:"fidget",tag:"Fidget",price:200,img:"images/ChatGPT Image May 21, 2026, 02_40_09 PM.png",brief:"Clicky magnetic slider with a satisfying feel.",desc:"A smooth magnetic slider with a nice click feel. Slide it, click it, and enjoy the action.",details:["Magnetic feel","Focus toy","Starter pick"]},
+  {name:"Bearbrick Duo",cat:"collectible",tag:"Collectible",price:250,img:"images/bearbrick-duo-square.png",brief:"Cute mini figure pair for desks and shelves.",desc:"Two cute mini figures for your desk or shelf. A nice gift and a fun collectible.",details:["Set of 2","Desk decor","Gift ready"]},
+  {name:"Butterfly Knife Practice Model",cat:"collectible",tag:"Practice",price:300,img:"images/butterfly-knife-square.png",brief:"Blunt practice model for safe movement learning.",desc:"A blunt 3D printed practice and display model for learning hand movement safely. Not a real blade.",details:["Blunt model","Practice only","Display piece"]},
+  {name:"F1 Covered Car",cat:"collectible",tag:"Collector",price:550,img:"images/ChatGPT Image May 18, 2026, 04_07_27 PM.png",brief:"Premium racing car display for motorsport fans.",desc:"A cool F1-style display car with a premium look. Perfect for car fans and collectors.",details:["Display car","Premium finish","Car fan gift"]},
+  {name:"Custom Desktop Sign",cat:"custom",tag:"Custom",price:250,img:"images/ChatGPT Image May 22, 2026, 01_13_01 AM.png",brief:"Personal name or logo sign for your setup.",desc:"Get your name, username, brand name, or short text made into a 3D printed desk sign.",details:["Names/logos","Starts Rs 250","Quote first"]},
+  {name:"Custom 3D Relief Frame",cat:"custom",tag:"Custom",price:600,img:"images/ChatGPT Image May 21, 2026, 02_53_00 PM.png",brief:"Photo-based 3D frame made as a premium gift.",desc:"Turn your photo into a 3D frame that you can keep on a desk, shelf, or gift to someone.",details:["Photo based","Gift piece","Quote first"]},
+  {name:"Custom Character and Statue",cat:"custom",tag:"Custom",price:500,img:"images/custom-character-square.png",brief:"Custom figure or statue built from your idea.",desc:"Make a custom character or a small statue of you, your family, or any idea you have.",details:["Reference needed","Custom size","Quote first"]}
 ];
 
 var grid=document.getElementById("productGrid");
 var activeProduct=products[0];
+var activeFilter="all";
+var searchQuery="";
+var sortMode="featured";
+var finderMood="focus";
+var finderBudget="starter";
+var favoritesOnly=false;
 var spinRewards=["Rs 20 off","Rs 100 off on Rs 1000+ order","Rs 40 off","Rs 60 off on Rs 500+ order","Rs 80 off on Rs 700+ order","Rs 50 off"];
 function storageGet(key){try{return window.localStorage.getItem(key)}catch(e){return null}}
 function storageSet(key,value){try{window.localStorage.setItem(key,value)}catch(e){}}
 function storageRemove(key){try{window.localStorage.removeItem(key)}catch(e){}}
+var SPIN_RESET_MS=30*24*60*60*1000;
+function clearSpinReward(){
+  storageRemove("printifySpinReward");
+  storageRemove("printifyPostOrderSpinUsed");
+  storageRemove("printifySpinRewardIndex");
+  storageRemove("printifySpinWheelRotation");
+  storageRemove("printifySpinUsedAt");
+}
+function resetExpiredSpin(){
+  var reward=storageGet("printifySpinReward");
+  var usedAt=storageGet("printifySpinUsedAt");
+  if(!reward)return;
+  if(!usedAt){
+    storageSet("printifySpinUsedAt",new Date().toISOString());
+    return;
+  }
+  var usedTime=new Date(usedAt).getTime();
+  if(!isNaN(usedTime)&&Date.now()-usedTime>=SPIN_RESET_MS)clearSpinReward();
+}
+resetExpiredSpin();
+var savedProducts=(storageGet("printifySavedProducts")||"").split("|").filter(Boolean);
 var spinUnlocked=storageGet("printifyOrderPlaced")==="true";
 var currentReward=storageGet("printifySpinReward")||"";
 var currentRewardIndex=parseInt(storageGet("printifySpinRewardIndex")||"-1",10);
 var currentWheelRotation=parseFloat(storageGet("printifySpinWheelRotation")||"0");
 if(currentReward&&spinRewards.indexOf(currentReward)===-1){
-  storageRemove("printifySpinReward");
-  storageRemove("printifySpinRewardIndex");
-  storageRemove("printifySpinWheelRotation");
+  clearSpinReward();
   currentReward="";
   currentRewardIndex=-1;
   currentWheelRotation=0;
@@ -1458,18 +2419,87 @@ function escapeHtml(value){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
   });
 }
+function saveFavorites(){
+  storageSet("printifySavedProducts",savedProducts.join("|"));
+}
+function isSaved(name){
+  return savedProducts.indexOf(name)>-1;
+}
+function syncCatalogueTools(){
+  var favBtn=document.getElementById("favoritesOnly");
+  if(favBtn){
+    favBtn.classList.toggle("on",favoritesOnly);
+    favBtn.setAttribute("aria-pressed",favoritesOnly?"true":"false");
+    favBtn.textContent="Saved"+(savedProducts.length?" ("+savedProducts.length+")":"");
+  }
+}
 function renderProducts(list){
+  var count=document.getElementById("productCount");
+  if(count)count.textContent=list.length+" product"+(list.length===1?"":"s");
+  if(!list.length){
+    grid.innerHTML='<div class="empty-state">No products match that search. Try a different word or switch the filter back to All.</div>';
+    return;
+  }
   grid.innerHTML=list.map(function(p,i){
     var index=products.indexOf(p);
     var name=escapeHtml(p.name);
     var details=(p.details||[]).map(function(item){return '<span class="detail">'+escapeHtml(item)+'</span>';}).join("");
-    return '<article class="product" data-index="'+products.indexOf(p)+'">'+
-      '<div class="photo"><img src="'+escapeHtml(p.img)+'" alt="'+name+'" loading="lazy"><span class="badge">'+escapeHtml(p.tag)+'</span><button class="heart" data-save="'+index+'" type="button" aria-label="Save '+name+'">&#9825;</button><span class="quick">Quick view</span></div>'+
-      '<div class="info"><div class="tag">3D Printed</div><div class="name">'+name+'</div><p class="desc">'+escapeHtml(p.desc)+'</p>'+
+    var saved=isSaved(p.name);
+    return '<article class="product" data-index="'+products.indexOf(p)+'" tabindex="0" aria-label="View '+name+'">'+
+      '<div class="photo"><img src="'+escapeHtml(p.img)+'" alt="'+name+'" loading="lazy"><span class="badge">'+escapeHtml(p.tag)+'</span><button class="heart'+(saved?' saved':'')+'" data-save="'+index+'" type="button" aria-label="'+(saved?'Unsave ':'Save ')+name+'">'+(saved?'&#9829;':'&#9825;')+'</button><span class="quick">Quick view</span></div>'+
+      '<div class="info"><div class="tag">3D Printed</div><div class="name">'+name+'</div><p class="brief">'+escapeHtml(p.brief||"Made-to-order 3D printed product.")+'</p><p class="desc">'+escapeHtml(p.desc)+'</p>'+
       '<div class="details">'+details+'</div>'+
       '<div class="foot"><span class="price">'+money(p.price)+'</span><button class="mini" data-order="'+index+'" type="button">Order</button></div></div>'+
     '</article>';
   }).join("");
+}
+function productSearchText(p){
+  return [p.name,p.cat,p.tag,p.brief,p.desc,(p.details||[]).join(" ")].join(" ").toLowerCase();
+}
+function applyCatalogue(){
+  var list=products.slice();
+  if(activeFilter!=="all")list=list.filter(function(p){return p.cat===activeFilter});
+  if(favoritesOnly)list=list.filter(function(p){return isSaved(p.name)});
+  if(searchQuery)list=list.filter(function(p){return productSearchText(p).indexOf(searchQuery)>-1});
+  if(sortMode==="price-low")list.sort(function(a,b){return a.price-b.price});
+  if(sortMode==="price-high")list.sort(function(a,b){return b.price-a.price});
+  if(sortMode==="name")list.sort(function(a,b){return a.name.localeCompare(b.name)});
+  syncCatalogueTools();
+  renderProducts(list);
+}
+function findProduct(name){
+  return products.find(function(p){return p.name===name})||products[0];
+}
+function finderPick(){
+  var picks={
+    focus:{starter:"Magnetic Slider Fidget",mid:"Twist Fidget Toy",premium:"Fidget Cube"},
+    gift:{starter:"Bookmark Clip",mid:"Bearbrick Duo",premium:"Custom 3D Relief Frame"},
+    desk:{starter:"Spiral Cones",mid:"Custom Desktop Sign",premium:"F1 Covered Car"},
+    custom:{starter:"Custom Desktop Sign",mid:"Custom Character and Statue",premium:"Custom 3D Relief Frame"}
+  };
+  return findProduct((picks[finderMood]&&picks[finderMood][finderBudget])||"Spiral Cones");
+}
+function renderFinder(){
+  var target=document.getElementById("finderResult");
+  if(!target)return;
+  var p=finderPick();
+  var details=(p.details||[]).map(function(item){return '<span class="detail">'+escapeHtml(item)+'</span>';}).join("");
+  target.innerHTML=
+    '<div class="finder-img"><img src="'+escapeHtml(p.img)+'" alt="'+escapeHtml(p.name)+'" loading="lazy"></div>'+
+    '<div class="finder-body">'+
+      '<div class="finder-match">'+escapeHtml(p.tag)+' match</div>'+
+      '<h3>'+escapeHtml(p.name)+'</h3>'+
+      '<p class="brief">'+escapeHtml(p.brief||"Made-to-order 3D printed product.")+'</p>'+
+      '<p>'+escapeHtml(p.desc)+'</p>'+
+      '<div class="finder-details">'+details+'</div>'+
+      '<div class="finder-actions">'+
+        '<button class="btn btn-dark" id="finderOrder" type="button">Order This</button>'+
+        '<button class="btn btn-light" id="finderPreview" type="button">Quick View</button>'+
+      '</div>'+
+      '<span class="price">'+money(p.price)+'</span>'+
+    '</div>';
+  document.getElementById("finderOrder").addEventListener("click",function(){openOrder(p.name)});
+  document.getElementById("finderPreview").addEventListener("click",function(){openQuick(p)});
 }
 function showToast(text){
   var t=document.getElementById("toast");
@@ -1483,7 +2513,9 @@ function openQuick(p){
   document.getElementById("quickImg").alt=p.name;
   document.getElementById("quickTag").textContent=p.tag;
   document.getElementById("quickName").textContent=p.name;
+  document.getElementById("quickBrief").textContent=p.brief||"Made-to-order 3D printed product.";
   document.getElementById("quickDesc").textContent=p.desc;
+  document.getElementById("quickDetails").innerHTML=(p.details||[]).map(function(item){return '<span class="detail">'+escapeHtml(item)+'</span>';}).join("");
   document.getElementById("quickPrice").textContent=money(p.price);
   document.getElementById("quickOrder").onclick=function(){closeQuick();openOrder(p.name)};
   document.getElementById("quickBg").classList.add("open");
@@ -1494,21 +2526,17 @@ function closeQuick(e){
   document.getElementById("quickBg").classList.remove("open");
   document.body.classList.remove("lock");
 }
-function buildCartUrl(name, extras){
+function openOrder(name, extras){
   var params=new URLSearchParams();
   if(name)params.set("product",name);
-  var reward=storageGet("printifySpinReward")||currentReward;
-  if(reward)params.set("reward",reward);
   if(extras){
     if(extras.qty)params.set("qty",extras.qty);
     if(extras.want)params.set("want",extras.want);
     if(extras.notes)params.set("notes",extras.notes);
   }
-  var query=params.toString();
-  return "cart.html"+(query?"?"+query:"");
-}
-function openOrder(name, extras){
-  window.location.href=buildCartUrl(name, extras);
+  var reward=storageGet("printifySpinReward")||currentReward||"";
+  if(reward)params.set("reward",reward);
+  window.location.href="cart.html"+(params.toString()?"?"+params.toString():"");
 }
 function updateLab(){
   var type=document.getElementById("labType");
@@ -1523,9 +2551,54 @@ function updateLab(){
   document.getElementById("labObject").textContent=label.split(" ")[0];
   document.getElementById("labObject").style.transform="scale("+(1+(qty-1)*.045)+")";
 }
+function storageJson(key){
+  var value=storageGet(key);
+  if(!value)return null;
+  try{return JSON.parse(value)}catch(e){return null}
+}
+function friendlyDate(value){
+  if(!value)return "Just now";
+  var date=new Date(value);
+  if(isNaN(date.getTime()))return "Recently";
+  return date.toLocaleString("en-IN",{day:"numeric",month:"short",year:"numeric",hour:"numeric",minute:"2-digit"});
+}
+function renderLastOrder(){
+  var card=document.getElementById("lastOrderCard");
+  if(!card)return;
+  var order=storageJson("printifyLastOrder");
+  if(!order)return;
+  var product=order.product||"Custom order";
+  var qty=order.qty||"1";
+  var want=order.want||"Order details sent on WhatsApp.";
+  card.innerHTML=
+    '<div class="last-order-content">'+
+      '<div class="last-order-icon">3D</div>'+
+      '<div class="last-order-main">'+
+        '<div class="last-order-status">'+escapeHtml(order.status||"Sent on WhatsApp")+'</div>'+
+        '<h3>'+escapeHtml(product)+'</h3>'+
+        '<p>'+escapeHtml(want)+'</p>'+
+      '</div>'+
+      '<div class="last-order-actions">'+
+        '<button class="btn btn-dark" id="repeatLastOrder" type="button">Order Again</button>'+
+        '<a class="btn btn-light" href="cart.html">New Order</a>'+
+      '</div>'+
+    '</div>'+
+    '<div class="last-order-meta">'+
+      '<div><span>Placed</span><b>'+escapeHtml(friendlyDate(order.placedAt))+'</b></div>'+
+      '<div><span>Quantity</span><b>'+escapeHtml(qty+(qty==="5"?" or more":""))+'</b></div>'+
+      '<div><span>Total</span><b>'+escapeHtml(order.total||"Ask price")+'</b></div>'+
+      '<div><span>Color</span><b>'+escapeHtml(order.color||"Not specified")+'</b></div>'+
+      '<div><span>Payment</span><b>'+escapeHtml(order.payment||"Not selected")+'</b></div>'+
+    '</div>';
+  document.getElementById("repeatLastOrder").addEventListener("click",function(){
+    openOrder(product,{qty:qty,want:want,notes:"Repeat of last order placed "+friendlyDate(order.placedAt)+"."});
+  });
+}
 
-renderProducts(products);
+applyCatalogue();
+renderFinder();
 updateLab();
+renderLastOrder();
 if(currentReward){
   if(!currentWheelRotation&&currentRewardIndex>=0){
     var savedSegment=360/spinRewards.length;
@@ -1537,7 +2610,7 @@ if(currentReward){
   void wheel.offsetWidth;
   wheel.style.transition="";
   document.getElementById("spinResult").textContent=currentReward;
-  document.getElementById("spinBtn").textContent="Already spun";
+  document.getElementById("spinBtn").textContent="Resets in 30 days";
   document.getElementById("spinBtn").disabled=true;
   document.getElementById("spinBtn").classList.add("spin-used");
 }else if(!spinUnlocked){
@@ -1566,22 +2639,76 @@ document.querySelector(".filters").addEventListener("click",function(e){
   if(!e.target.classList.contains("filter"))return;
   document.querySelectorAll(".filter").forEach(function(b){b.classList.remove("on")});
   e.target.classList.add("on");
-  var f=e.target.dataset.filter;
-  renderProducts(f==="all"?products:products.filter(function(p){return p.cat===f}));
+  activeFilter=e.target.dataset.filter;
+  applyCatalogue();
+});
+document.getElementById("productSearch").addEventListener("input",function(e){
+  searchQuery=e.target.value.trim().toLowerCase();
+  applyCatalogue();
+});
+document.getElementById("productSort").addEventListener("change",function(e){
+  sortMode=e.target.value;
+  applyCatalogue();
+});
+document.getElementById("favoritesOnly").addEventListener("click",function(){
+  favoritesOnly=!favoritesOnly;
+  applyCatalogue();
+  showToast(favoritesOnly?"Showing saved products":"Showing all products");
+});
+document.getElementById("clearCatalogue").addEventListener("click",function(){
+  activeFilter="all";
+  searchQuery="";
+  sortMode="featured";
+  favoritesOnly=false;
+  document.getElementById("productSearch").value="";
+  document.getElementById("productSort").value="featured";
+  document.querySelectorAll(".filter").forEach(function(b){b.classList.toggle("on",b.dataset.filter==="all")});
+  applyCatalogue();
+  showToast("Catalogue reset");
+});
+document.querySelectorAll("[data-finder-group]").forEach(function(group){
+  group.addEventListener("click",function(e){
+    var btn=e.target.closest(".finder-chip");
+    if(!btn)return;
+    group.querySelectorAll(".finder-chip").forEach(function(chip){chip.classList.remove("on")});
+    btn.classList.add("on");
+    if(group.dataset.finderGroup==="mood")finderMood=btn.dataset.value;
+    if(group.dataset.finderGroup==="budget")finderBudget=btn.dataset.value;
+    renderFinder();
+  });
+});
+document.getElementById("surpriseBtn").addEventListener("click",function(){
+  var pick=products[Math.floor(Math.random()*products.length)];
+  showToast("Surprise pick: "+pick.name);
+  openQuick(pick);
 });
 grid.addEventListener("click",function(e){
   var save=e.target.closest("[data-save]");
   if(save){
     e.stopPropagation();
-    save.classList.toggle("saved");
-    save.textContent=save.classList.contains("saved")?"\u2665":"\u2661";
-    showToast(save.classList.contains("saved")?"Saved to favorites":"Removed from favorites");
+    var product=products[save.dataset.save];
+    if(isSaved(product.name)){
+      savedProducts=savedProducts.filter(function(name){return name!==product.name});
+      showToast("Removed from saved");
+    }else{
+      savedProducts.push(product.name);
+      showToast("Saved for later");
+    }
+    saveFavorites();
+    applyCatalogue();
     return;
   }
   var order=e.target.closest("[data-order]");
   if(order){e.stopPropagation();openOrder(products[order.dataset.order].name);return}
   var card=e.target.closest(".product");
   if(card)openQuick(products[card.dataset.index]);
+});
+grid.addEventListener("keydown",function(e){
+  if(e.key!=="Enter"&&e.key!==" ")return;
+  var card=e.target.closest(".product");
+  if(!card||e.target.closest("button"))return;
+  e.preventDefault();
+  openQuick(products[card.dataset.index]);
 });
 document.getElementById("spinBtn").addEventListener("click",function(){
   var btn=document.getElementById("spinBtn");
@@ -1604,8 +2731,9 @@ document.getElementById("spinBtn").addEventListener("click",function(){
     storageSet("printifyPostOrderSpinUsed","true");
     storageSet("printifySpinRewardIndex",String(rewardIndex));
     storageSet("printifySpinWheelRotation",String(currentWheelRotation));
+    storageSet("printifySpinUsedAt",new Date().toISOString());
     document.getElementById("spinResult").textContent=currentReward;
-    btn.textContent="Already spun";
+    btn.textContent="Resets in 30 days";
     btn.classList.add("spin-used");
     showToast("You won: "+currentReward);
   },4300);
@@ -1638,7 +2766,7 @@ window.setInterval(function(){
   queueIndex=(queueIndex+1)%queueMessages.length;
   document.getElementById("queueText").textContent=queueMessages[queueIndex];
 },2600);
-document.querySelectorAll("section,.product,.starter-card,.step,.about-card,.about-story,.custom-copy,.quote-box,.lab-panel,.spin-copy,.spin-stage").forEach(function(el){el.classList.add("reveal")});
+document.querySelectorAll("section,.product,.starter-card,.step,.finder-copy,.finder-result,.about-card,.about-story,.custom-copy,.quote-box,.lab-panel,.spin-copy,.spin-stage,.last-order-card").forEach(function(el){el.classList.add("reveal")});
 if("IntersectionObserver" in window){
   var revealObserver=new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -1652,6 +2780,25 @@ if("IntersectionObserver" in window){
 document.addEventListener("keydown",function(e){
   if(e.key==="Escape")closeQuick();
 });
+document.getElementById("backTop").addEventListener("click",function(){
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+var navLinks=[].slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
+var navSections=navLinks.map(function(link){
+  return {link:link,section:document.querySelector(link.getAttribute("href"))};
+}).filter(function(item){return item.section});
+function updatePageChrome(){
+  var y=window.scrollY||document.documentElement.scrollTop;
+  document.getElementById("backTop").classList.toggle("show",y>520);
+  var current=navSections[0];
+  navSections.forEach(function(item){
+    if(item.section.offsetTop-130<=y)current=item;
+  });
+  navLinks.forEach(function(link){link.classList.remove("active")});
+  if(current)current.link.classList.add("active");
+}
+window.addEventListener("scroll",updatePageChrome,{passive:true});
+updatePageChrome();
 
 var canvas=document.getElementById("meshCanvas");
 var ctx=canvas.getContext("2d");
@@ -1659,6 +2806,7 @@ var meshItems=[];
 var meshW=0;
 var meshH=0;
 var meshDpr=1;
+var meshSizeBoost=1.18;
 
 function makeMesh(type){
   if(type==="cube")return meshCube(1.35,7);
@@ -1827,7 +2975,7 @@ function setupMeshCanvas(){
       mesh:mesh,
       x:pos[i][0]*meshW,
       y:pos[i][1]*meshH,
-      scale:Math.min(meshW,meshH)*(i>47?(i%4===0?.04:.034):i>27?(i%4===0?.058:.05):(i%5===0?.088:i%3===0?.078:.068)),
+      scale:Math.min(meshW,meshH)*meshSizeBoost*(i>47?(i%4===0?0.04:0.034):i>27?(i%4===0?0.058:0.05):(i%5===0?0.088:i%3===0?0.078:0.068)),
       rx:i*.7,ry:i*.43,rz:i*.31,
       vx:(i%2?-1:1)*(18+(i%9)*5),
       vy:(i%3?-1:1)*(15+(i%7)*4),
